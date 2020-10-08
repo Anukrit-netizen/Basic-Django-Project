@@ -39,6 +39,7 @@ def register_user(request):
 		form = MyRegistrationForm(request.POST)
 		if form.is_valid():
 			form.save()
+			
 			return HttpResponseRedirect('/accounts/register_sucess')
 
 	args = {}
@@ -50,4 +51,7 @@ def register_user(request):
 
 def register_sucess(request):
 	return render_to_response('register_sucess.html')
-
+def Profile(request):
+    user=request.user
+    context={}
+    return render(request,'my_profile.html', context=context)
