@@ -1,12 +1,13 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from article.views import HelloTemplate
+from article.views import HelloTemplate ,Profile
 from django.conf import settings
 from django.conf.urls.static import static
 
 admin.autodiscover()
 
 urlpatterns = patterns('',
+    path('profile/', Profile,name='my_profile'),
     url(r'^articles/' , include( 'article.urls')),
     url(r'^hello/$' , 'article.views.hello'),
     url(r'^hello_template/$' , 'article.views.hello_template'),
